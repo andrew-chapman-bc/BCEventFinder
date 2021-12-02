@@ -25,7 +25,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="928.98550724637687" y="71.651785714285708"/>
+            <point key="canvasLocation" x="926" y="88"/>
         </scene>
         <!--Event List View Controller-->
         <scene sceneID="vL3-B5-6uI">
@@ -70,7 +70,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="Mvu-Ji-Ajt" kind="show" id="5Le-zq-AGX"/>
+                                            <segue destination="Mvu-Ji-Ajt" kind="show" identifier="ShowDetail" id="5Le-zq-AGX"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -123,32 +123,25 @@
                                 <rect key="frame" x="0.0" y="88" width="414" height="774"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="jBq-C0-hNH">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="539"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="599"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Title" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Rbe-6p-mqj">
-                                            <rect key="frame" x="20" y="8" width="374" height="58"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
-                                            <nil key="textColor"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Date:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5vN-en-Dk7">
-                                            <rect key="frame" x="20" y="128" width="176" height="60"/>
+                                            <rect key="frame" x="20" y="210" width="176" height="46"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
                                         <datePicker contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" datePickerMode="dateAndTime" minuteInterval="1" translatesAutoresizingMaskIntoConstraints="NO" id="d3K-JD-csN">
-                                            <rect key="frame" x="20" y="196" width="374" height="91"/>
+                                            <rect key="frame" x="20" y="264" width="374" height="91"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                             <connections>
                                                 <action selector="datePickerChanged:" destination="Mvu-Ji-Ajt" eventType="valueChanged" id="gwf-e8-BQl"/>
                                             </connections>
                                         </datePicker>
                                         <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9vr-SU-8s3">
-                                            <rect key="frame" x="20" y="467" width="374" height="64"/>
+                                            <rect key="frame" x="20" y="506" width="374" height="48"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <state key="normal" title="Button"/>
                                             <buttonConfiguration key="configuration" style="filled" image="greetingcard" catalog="system" title="RSVP">
@@ -157,51 +150,89 @@
                                             </buttonConfiguration>
                                             <connections>
                                                 <action selector="rsvpButtonPressed:" destination="Mvu-Ji-Ajt" eventType="touchUpInside" id="kz9-sj-LT4"/>
-                                                <segue destination="bXP-TQ-xQA" kind="presentation" modalPresentationStyle="fullScreen" id="Elz-2C-vu3"/>
+                                                <segue destination="bXP-TQ-xQA" kind="presentation" identifier="AddUser" modalPresentationStyle="fullScreen" id="Elz-2C-vu3"/>
                                             </connections>
                                         </button>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Location:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIk-ko-OO1">
-                                            <rect key="frame" x="20" y="74" width="176" height="46"/>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Res Hall:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yIk-ko-OO1">
+                                            <rect key="frame" x="20" y="50" width="176" height="70"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="24"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="B9u-YS-tYL">
-                                            <rect key="frame" x="230" y="82" width="176" height="31"/>
-                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                            <state key="normal" title="Button"/>
-                                            <buttonConfiguration key="configuration" style="plain" title="Drop Down"/>
-                                        </button>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="MM/DD/YY HH:MM" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vMd-9W-IFL">
-                                            <rect key="frame" x="230" y="128" width="176" height="60"/>
+                                            <rect key="frame" x="230" y="216" width="176" height="35"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-QD-hdX">
-                                            <rect key="frame" x="20" y="331" width="374" height="128"/>
+                                        <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" text="Generic descp" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="NO2-QD-hdX">
+                                            <rect key="frame" x="20" y="399" width="374" height="99"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                            <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                             <color key="textColor" systemColor="labelColor"/>
                                             <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                             <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                         </textView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Event Description:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a1Y-Ii-pe3">
-                                            <rect key="frame" x="20" y="295" width="374" height="28"/>
+                                            <rect key="frame" x="20" y="363" width="374" height="28"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                             <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
                                             <nil key="textColor"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="# of desired attendees:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="xuy-iD-VBq">
+                                            <rect key="frame" x="20" y="180" width="202" height="22"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="VT4-Sg-c3A">
+                                            <rect key="frame" x="230" y="174" width="164" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" text="Event Title" borderStyle="roundedRect" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="bRW-Uf-cyj">
+                                            <rect key="frame" x="8" y="8" width="398" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Bold" family="Helvetica Neue" pointSize="36"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Attendees:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="guv-Ej-10C">
+                                            <rect key="frame" x="8" y="562" width="374" height="29"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Room Number:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZXo-cr-niy">
+                                            <rect key="frame" x="20" y="123" width="176" height="49"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" name="HelveticaNeue-Medium" family="Helvetica Neue" pointSize="17"/>
+                                            <nil key="textColor"/>
+                                            <nil key="highlightedColor"/>
+                                        </label>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Nih-th-FWY">
+                                            <rect key="frame" x="230" y="130" width="164" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
+                                        <textField opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="HuX-yJ-qzf">
+                                            <rect key="frame" x="230" y="68" width="164" height="34"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                            <textInputTraits key="textInputTraits"/>
+                                        </textField>
                                     </subviews>
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" textLabel="fdY-dH-OHE" detailTextLabel="ZuH-pR-a8V" style="IBUITableViewCellStyleValue1" id="r9U-M5-oeF">
-                                        <rect key="frame" x="0.0" y="583.5" width="414" height="43.5"/>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RsvpCell" textLabel="fdY-dH-OHE" detailTextLabel="ZuH-pR-a8V" style="IBUITableViewCellStyleValue1" id="r9U-M5-oeF">
+                                        <rect key="frame" x="0.0" y="643.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9U-M5-oeF" id="BDs-EQ-m2e">
                                             <rect key="frame" x="0.0" y="0.0" width="414" height="43.5"/>
@@ -224,7 +255,7 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
-                                            <segue destination="vnT-tv-MOB" kind="show" id="T29-tR-kVZ"/>
+                                            <segue destination="vnT-tv-MOB" kind="show" identifier="ShowUser" id="T29-tR-kVZ"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -245,12 +276,22 @@
                                 <action selector="cancelButtonPressed:" destination="Mvu-Ji-Ajt" id="a2i-BZ-S9f"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="egU-HG-h3W"/>
+                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="egU-HG-h3W">
+                            <connections>
+                                <action selector="saveButtonPressed:" destination="Mvu-Ji-Ajt" id="kCa-Ht-Udo"/>
+                            </connections>
+                        </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="datePicker" destination="d3K-JD-csN" id="1mj-LM-ova"/>
+                        <outlet property="desiredPeopleField" destination="VT4-Sg-c3A" id="l6e-6H-FwC"/>
+                        <outlet property="dormField" destination="HuX-yJ-qzf" id="cbJ-zn-gv6"/>
                         <outlet property="eventDateLabel" destination="vMd-9W-IFL" id="wdK-Le-SZF"/>
                         <outlet property="eventDescriptionTextField" destination="NO2-QD-hdX" id="fsv-GT-hmv"/>
-                        <outlet property="eventTitleLabel" destination="Rbe-6p-mqj" id="1Hu-Nw-nOG"/>
+                        <outlet property="eventTitleField" destination="bRW-Uf-cyj" id="rgh-jQ-uy3"/>
+                        <outlet property="roomNumberField" destination="Nih-th-FWY" id="1ta-QM-6if"/>
+                        <outlet property="rsvpButton" destination="9vr-SU-8s3" id="pbc-vw-c7D"/>
+                        <outlet property="saveBarButton" destination="egU-HG-h3W" id="HB6-lH-uqv"/>
                         <outlet property="tableView" destination="dH2-Qj-WeA" id="Tpa-m4-8GH"/>
                     </connections>
                 </viewController>

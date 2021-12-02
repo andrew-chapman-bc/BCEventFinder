@@ -11,6 +11,11 @@
 		F01A80DD2756BE3C008771F3 /* EventListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80DC2756BE3B008771F3 /* EventListViewController.swift */; };
 		F01A80DF2756BF79008771F3 /* EventDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80DE2756BF79008771F3 /* EventDetailViewController.swift */; };
 		F01A80E12756C22C008771F3 /* UserViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80E02756C22C008771F3 /* UserViewController.swift */; };
+		F01A80E3275717BF008771F3 /* Event.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80E2275717BE008771F3 /* Event.swift */; };
+		F01A80E6275733CE008771F3 /* UIViewController+alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80E5275733CD008771F3 /* UIViewController+alert.swift */; };
+		F01A80E827582937008771F3 /* Events.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80E727582936008771F3 /* Events.swift */; };
+		F01A80EA27586093008771F3 /* RSVP.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80E927586092008771F3 /* RSVP.swift */; };
+		F01A80EC27586345008771F3 /* RSVPs.swift in Sources */ = {isa = PBXBuildFile; fileRef = F01A80EB27586344008771F3 /* RSVPs.swift */; };
 		F02833D02754818600E1CA32 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02833CF2754818600E1CA32 /* AppDelegate.swift */; };
 		F02833D22754818600E1CA32 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02833D12754818600E1CA32 /* SceneDelegate.swift */; };
 		F02833D42754818600E1CA32 /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = F02833D32754818600E1CA32 /* LoginViewController.swift */; };
@@ -28,6 +33,11 @@
 		F01A80DC2756BE3B008771F3 /* EventListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventListViewController.swift; sourceTree = "<group>"; };
 		F01A80DE2756BF79008771F3 /* EventDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventDetailViewController.swift; sourceTree = "<group>"; };
 		F01A80E02756C22C008771F3 /* UserViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserViewController.swift; sourceTree = "<group>"; };
+		F01A80E2275717BE008771F3 /* Event.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Event.swift; sourceTree = "<group>"; };
+		F01A80E5275733CD008771F3 /* UIViewController+alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+alert.swift"; sourceTree = "<group>"; };
+		F01A80E727582936008771F3 /* Events.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Events.swift; sourceTree = "<group>"; };
+		F01A80E927586092008771F3 /* RSVP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVP.swift; sourceTree = "<group>"; };
+		F01A80EB27586344008771F3 /* RSVPs.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RSVPs.swift; sourceTree = "<group>"; };
 		F02833CC2754818600E1CA32 /* BCEventFinder.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = BCEventFinder.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		F02833CF2754818600E1CA32 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		F02833D12754818600E1CA32 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -92,10 +102,15 @@
 			children = (
 				F02833CF2754818600E1CA32 /* AppDelegate.swift */,
 				F02833D12754818600E1CA32 /* SceneDelegate.swift */,
+				F01A80E2275717BE008771F3 /* Event.swift */,
+				F01A80E727582936008771F3 /* Events.swift */,
+				F01A80E927586092008771F3 /* RSVP.swift */,
+				F01A80EB27586344008771F3 /* RSVPs.swift */,
 				F02833D32754818600E1CA32 /* LoginViewController.swift */,
 				F01A80DC2756BE3B008771F3 /* EventListViewController.swift */,
 				F01A80DE2756BF79008771F3 /* EventDetailViewController.swift */,
 				F01A80E02756C22C008771F3 /* UserViewController.swift */,
+				F01A80E5275733CD008771F3 /* UIViewController+alert.swift */,
 				F02833D52754818600E1CA32 /* Main.storyboard */,
 				F02833E4275487D300E1CA32 /* Models */,
 				F02833E6275487E900E1CA32 /* Views */,
@@ -264,9 +279,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F01A80E3275717BF008771F3 /* Event.swift in Sources */,
 				F01A80E12756C22C008771F3 /* UserViewController.swift in Sources */,
 				F01A80DF2756BF79008771F3 /* EventDetailViewController.swift in Sources */,
+				F01A80E6275733CE008771F3 /* UIViewController+alert.swift in Sources */,
+				F01A80EC27586345008771F3 /* RSVPs.swift in Sources */,
+				F01A80E827582937008771F3 /* Events.swift in Sources */,
 				F01A80DD2756BE3C008771F3 /* EventListViewController.swift in Sources */,
+				F01A80EA27586093008771F3 /* RSVP.swift in Sources */,
 				F02833D42754818600E1CA32 /* LoginViewController.swift in Sources */,
 				F02833D02754818600E1CA32 /* AppDelegate.swift in Sources */,
 				F0C5C5602755BB2A00356F7A /* APIKeys.swift in Sources */,
