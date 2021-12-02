@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class UserViewController: UIViewController {
 
@@ -13,6 +14,8 @@ class UserViewController: UIViewController {
     @IBOutlet weak var classYearTextField: UITextField!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var phoneNumberTextField: UITextField!
+    @IBOutlet weak var deleteButton: UIButton!
+    @IBOutlet weak var submitBarButton: UIBarButtonItem!
     
     var rsvp: RSVP!
     var event: Event!
@@ -36,6 +39,26 @@ class UserViewController: UIViewController {
         classYearTextField.text = rsvp.classYear
         emailTextField.text = rsvp.email
         phoneNumberTextField.text = rsvp.phoneNumber
+        if rsvp.documentID == "" {
+            deleteButton.isEnabled = false
+            deleteButton.isHidden = true
+        } else {
+            if rsvp.reviewUserID == Auth.auth().currentUser?.uid {
+                self.submitBarButton.title = "Update"
+                
+            } else {
+                deleteButton.isHidden = true
+                deleteButton.isEnabled = false
+                nameTextField.isEnabled = false
+                classYearTextField.isEnabled = false
+                emailTextField.isEnabled = false
+                phoneNumberTextField.isEnabled = false
+                submitBarButton.isEnabled = false
+                submitBarButton.tintColor = .clear
+            }
+        }
+        
+        
     }
     
     func updateFromUserInterface() {
@@ -59,6 +82,13 @@ class UserViewController: UIViewController {
     }
     
     @IBAction func deleteButtonPressed(_ sender: UIButton) {
+        rsvp.deleteData(event: event) { success in
+            if success {
+                self.leaveViewController()
+            } else {
+                print("Delete Unsuccessful")
+            }
+        }
     }
     
     @IBAction func submitBarButtonPressed(_ sender: UIBarButtonItem) {

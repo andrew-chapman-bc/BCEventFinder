@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 class EventListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
@@ -50,6 +51,11 @@ extension EventListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = events.eventArray[indexPath.row].name
         cell.detailTextLabel?.text = events.eventArray[indexPath.row].date
+        if events.eventArray[indexPath.row].postingUserID == Auth.auth().currentUser?.uid {
+            cell.backgroundColor = .yellow
+        } else {
+            cell.backgroundColor = .clear
+        }
         return cell
     }
     

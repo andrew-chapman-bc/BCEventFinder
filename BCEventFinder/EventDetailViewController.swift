@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Firebase
 
 private let dateFormatter: DateFormatter = {
     print("Just created the date formatter")
@@ -32,7 +33,7 @@ class EventDetailViewController: UIViewController {
     "Voute","Walsh","Welch","Williams","Xavier"]
     let thePicker = UIPickerView()
     var userDorm = ""
-    
+        
     var event: Event!
     var rsvps: RSVPs!
     
@@ -60,6 +61,25 @@ class EventDetailViewController: UIViewController {
         rsvps.loadData(event: event) {
             self.tableView.reloadData()
         }
+        if event.documentID == "" {
+            rsvpButton.isEnabled = false
+            rsvpButton.isHidden = true
+        } else {
+            if event.postingUserID == Auth.auth().currentUser?.uid {
+                saveBarButton.title = "Update"
+            } else {
+                datePicker.isHidden = true
+                datePicker.isEnabled = false
+                eventTitleField.isEnabled = false
+                roomNumberField.isEnabled = false
+                eventDescriptionTextField.isEditable = false
+                dormField.isEnabled = false
+                desiredPeopleField.isEnabled = false
+                saveBarButton.isEnabled = false
+                saveBarButton.tintColor = .clear
+            }
+        }
+        
     }
     
     func updateUserInterface() {
@@ -142,6 +162,10 @@ extension EventDetailViewController: UITableViewDelegate, UITableViewDataSource 
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "RsvpCell", for: indexPath) as! EventRsvpTableViewCell
         cell.rsvp = rsvps.rsvpArray[indexPath.row]
+        if cell.rsvp.reviewUserID == event.postingUserID {
+            cell.backgroundColor = .green
+            cell.userNameLabel.text! += " (host)"
+        }
         return cell
     }
     

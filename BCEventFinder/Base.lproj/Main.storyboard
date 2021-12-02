@@ -278,7 +278,7 @@
                                 <action selector="cancelButtonPressed:" destination="Mvu-Ji-Ajt" id="a2i-BZ-S9f"/>
                             </connections>
                         </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" systemItem="save" id="egU-HG-h3W">
+                        <barButtonItem key="rightBarButtonItem" title="Save" id="egU-HG-h3W">
                             <connections>
                                 <action selector="saveButtonPressed:" destination="Mvu-Ji-Ajt" id="kCa-Ht-Udo"/>
                             </connections>
@@ -365,10 +365,10 @@
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lxe-e4-sKG">
                                 <rect key="frame" x="138" y="477" width="142" height="31"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="tintColor" red="0.54004246" green="0.063329823320000006" blue="0.042676933110000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <state key="normal" title="Button"/>
                                 <buttonConfiguration key="configuration" style="filled" title="Delete RSVP">
                                     <color key="baseForegroundColor" red="1" green="0.57810515169999999" blue="0.0" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <color key="baseBackgroundColor" red="0.52821922300000002" green="0.063303306700000006" blue="0.042652495210000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 </buttonConfiguration>
                                 <connections>
                                     <action selector="deleteButtonPressed:" destination="vnT-tv-MOB" eventType="touchUpInside" id="Rz7-UI-sqS"/>
@@ -398,9 +398,11 @@
                     </navigationItem>
                     <connections>
                         <outlet property="classYearTextField" destination="1x8-3A-7IK" id="hVf-GB-Nbe"/>
+                        <outlet property="deleteButton" destination="Lxe-e4-sKG" id="850-kO-OPe"/>
                         <outlet property="emailTextField" destination="kNx-1k-J9f" id="bUT-rI-XNw"/>
                         <outlet property="nameTextField" destination="IeU-u7-E8U" id="yI4-xA-f1R"/>
                         <outlet property="phoneNumberTextField" destination="MO7-Gr-pdP" id="jeW-mY-YfA"/>
+                        <outlet property="submitBarButton" destination="aQk-9R-6JJ" id="gAV-t5-Yry"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="N1D-Th-LjM" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
