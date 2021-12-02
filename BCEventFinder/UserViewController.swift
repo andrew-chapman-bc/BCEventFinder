@@ -62,6 +62,10 @@ class UserViewController: UIViewController {
     }
     
     @IBAction func submitBarButtonPressed(_ sender: UIBarButtonItem) {
+        if nameTextField.text!.isEmpty || classYearTextField.text!.isEmpty  {
+            self.oneButtonAlert(title: "Missing Fields", message: "Please enter name and class year to submit RSVP")
+            return
+        }
         updateFromUserInterface()
         rsvp.saveData(event: event) { success in
             if success {

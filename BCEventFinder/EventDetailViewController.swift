@@ -55,6 +55,13 @@ class EventDetailViewController: UIViewController {
         updateUserInterface()
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        rsvps.loadData(event: event) {
+            self.tableView.reloadData()
+        }
+    }
+    
     func updateUserInterface() {
         eventTitleField.text = event.name
         dormField.text = event.place
@@ -87,7 +94,7 @@ class EventDetailViewController: UIViewController {
             destination.rsvp = rsvps.rsvpArray[selectedIndexPath.row]
             destination.event = event
         default:
-            print("Couldn't find a case for segue identifier \(segue.identifier). This should not have happened!")
+            print("Couldn't find a case for segue identifier \(segue.identifier!). This should not have happened!")
         }
     }
     
@@ -110,7 +117,7 @@ class EventDetailViewController: UIViewController {
     @IBAction func rsvpButtonPressed(_ sender: UIButton) {
     }
     @IBAction func saveButtonPressed(_ sender: UIBarButtonItem) {
-        if eventTitleField.text!.isEmpty || dormField.text!.isEmpty || desiredPeopleField.text!.isEmpty || eventDateLabel.text!.hasPrefix("MM") || eventDescriptionTextField.text!.isEmpty {
+        if eventTitleField.text!.isEmpty || dormField.text!.isEmpty || desiredPeopleField.text!.isEmpty || eventDateLabel.text!.hasPrefix("MM") || eventDateLabel.text!.isEmpty || eventDescriptionTextField.text!.isEmpty {
             self.oneButtonAlert(title: "Missing Fields", message: "Please fill out all fields in form")
             return
         }
@@ -133,8 +140,8 @@ extension EventDetailViewController: UITableViewDelegate, UITableViewDataSource 
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "RsvpCell", for: indexPath)// as! SpotReviewTableViewCell
-        //cell.review = reviews.reviewArray[indexPath.row]
+        let cell = tableView.dequeueReusableCell(withIdentifier: "RsvpCell", for: indexPath) as! EventRsvpTableViewCell
+        cell.rsvp = rsvps.rsvpArray[indexPath.row]
         return cell
     }
     

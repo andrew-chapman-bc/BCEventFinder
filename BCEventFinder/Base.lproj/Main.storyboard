@@ -231,7 +231,7 @@
                                     <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RsvpCell" textLabel="fdY-dH-OHE" detailTextLabel="ZuH-pR-a8V" style="IBUITableViewCellStyleValue1" id="r9U-M5-oeF">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="RsvpCell" textLabel="fdY-dH-OHE" detailTextLabel="ZuH-pR-a8V" style="IBUITableViewCellStyleValue1" id="r9U-M5-oeF" customClass="EventRsvpTableViewCell" customModule="BCEventFinder" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="643.5" width="414" height="43.5"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="r9U-M5-oeF" id="BDs-EQ-m2e">
@@ -255,6 +255,8 @@
                                             </subviews>
                                         </tableViewCellContentView>
                                         <connections>
+                                            <outlet property="userClassLabel" destination="ZuH-pR-a8V" id="DSh-ab-41z"/>
+                                            <outlet property="userNameLabel" destination="fdY-dH-OHE" id="P6d-A8-lj3"/>
                                             <segue destination="vnT-tv-MOB" kind="show" identifier="ShowUser" id="T29-tR-kVZ"/>
                                         </connections>
                                     </tableViewCell>

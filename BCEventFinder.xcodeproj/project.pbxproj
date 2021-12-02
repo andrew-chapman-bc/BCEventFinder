@@ -24,6 +24,7 @@
 		F02833DC2754818E00E1CA32 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = F02833DA2754818E00E1CA32 /* LaunchScreen.storyboard */; };
 		F0C5C55E2755BA2D00356F7A /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = F0C5C55D2755BA2D00356F7A /* GoogleService-Info.plist */; };
 		F0C5C5602755BB2A00356F7A /* APIKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0C5C55F2755BB2A00356F7A /* APIKeys.swift */; };
+		F0F8AC822758999400ECB832 /* EventRsvpTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = F0F8AC812758999300ECB832 /* EventRsvpTableViewCell.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,7 @@
 		F02833DD2754818E00E1CA32 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		F0C5C55D2755BA2D00356F7A /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		F0C5C55F2755BB2A00356F7A /* APIKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIKeys.swift; sourceTree = "<group>"; };
+		F0F8AC812758999300ECB832 /* EventRsvpTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventRsvpTableViewCell.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -109,6 +111,7 @@
 				F02833D32754818600E1CA32 /* LoginViewController.swift */,
 				F01A80DC2756BE3B008771F3 /* EventListViewController.swift */,
 				F01A80DE2756BF79008771F3 /* EventDetailViewController.swift */,
+				F0F8AC812758999300ECB832 /* EventRsvpTableViewCell.swift */,
 				F01A80E02756C22C008771F3 /* UserViewController.swift */,
 				F01A80E5275733CD008771F3 /* UIViewController+alert.swift */,
 				F02833D52754818600E1CA32 /* Main.storyboard */,
@@ -291,6 +294,7 @@
 				F02833D02754818600E1CA32 /* AppDelegate.swift in Sources */,
 				F0C5C5602755BB2A00356F7A /* APIKeys.swift in Sources */,
 				F02833D22754818600E1CA32 /* SceneDelegate.swift in Sources */,
+				F0F8AC822758999400ECB832 /* EventRsvpTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
