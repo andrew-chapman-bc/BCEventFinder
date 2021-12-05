@@ -8,6 +8,13 @@
 import UIKit
 import Firebase
 
+private let dateFormatter: DateFormatter = {
+    print("Just created the date formatter")
+    let dateFormatter = DateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yy"
+    return dateFormatter
+}()
+
 class EventListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
@@ -37,6 +44,23 @@ class EventListViewController: UIViewController {
         } 
     }
     
+    func sortBasedOnSegmentPressed() {
+        switch segmentedControl.selectedSegmentIndex {
+        case 0: //A-Z
+            events.eventArray.sort(by: {$0.name < $1.name})
+        case 1: // date recent
+            events.eventArray.sort(by: {dateFormatter.date(from: String($0.date.components(separatedBy: ",")[0])) ?? Date() < dateFormatter.date(from: String($1.date.components(separatedBy: ",")[0])) ?? Date()})
+        case 2: // date future
+            events.eventArray.sort(by: {dateFormatter.date(from: String($0.date.components(separatedBy: ",")[0])) ?? Date() > dateFormatter.date(from: String($1.date.components(separatedBy: ",")[0])) ?? Date()})
+        default:
+            print("HEY! You shouldn't have gotten here. Check out the segmented control for an error!")
+        }
+        tableView.reloadData()
+    }
+    
+    @IBAction func segmentedControlPressed(_ sender: UISegmentedControl) {
+        sortBasedOnSegmentPressed()
+    }
     @IBAction func createEventPressed(_ sender: UIBarButtonItem) {
     }
     
@@ -51,10 +75,19 @@ extension EventListViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: "Cell", for: indexPath)
         cell.textLabel?.text = events.eventArray[indexPath.row].name
         cell.detailTextLabel?.text = events.eventArray[indexPath.row].date
+        cell.textLabel?.textColor = .black
+        cell.detailTextLabel?.textColor = .black
         if events.eventArray[indexPath.row].postingUserID == Auth.auth().currentUser?.uid {
-            cell.backgroundColor = .yellow
+            cell.backgroundColor = UIColor(named: "SecondaryColor")
         } else {
             cell.backgroundColor = .clear
+        }
+        let today = Date()
+        let modifiedDate = Calendar.current.date(byAdding: .day, value: 1, to: today)!
+        if dateFormatter.date(from: String(events.eventArray[indexPath.row].date.components(separatedBy: ",")[0]))! <= modifiedDate {
+            cell.backgroundColor = UIColor(named: "PrimaryColor")
+            cell.textLabel?.textColor = .white
+            cell.detailTextLabel?.textColor = .white
         }
         return cell
     }

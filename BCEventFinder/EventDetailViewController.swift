@@ -27,6 +27,7 @@ class EventDetailViewController: UIViewController {
     @IBOutlet weak var saveBarButton: UIBarButtonItem!
     @IBOutlet weak var rsvpButton: UIButton!
     @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var attendeesLabel: UILabel!
     
     let dorms = ["66","Chevy","Claver","Cushing","Duchene","Fenwick","Fitzpatrick", "Gabelli", "Gonzaga","Greycliff",
     "Hardey","Iggy","Keyes","Kostka","Loyola","Medeiros","Mods","90","2k","Roncalli","Ruby","Shaw","Stayer","2150","Vandy",
@@ -43,6 +44,10 @@ class EventDetailViewController: UIViewController {
         if event == nil {
             event = Event()
         }
+        //hide keyboard if we tap outside of the field
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         
         tableView.delegate = self
         tableView.dataSource = self
@@ -52,6 +57,7 @@ class EventDetailViewController: UIViewController {
         dormField.inputView = thePicker
         
         rsvps = RSVPs()
+        
 
         updateUserInterface()
     }
@@ -60,6 +66,9 @@ class EventDetailViewController: UIViewController {
         super.viewWillAppear(animated)
         rsvps.loadData(event: event) {
             self.tableView.reloadData()
+            if self.event.documentID != "" {
+                self.attendeesLabel.text = "Attendees: \(self.rsvps.rsvpArray.count)"
+            }
         }
         if event.documentID == "" {
             rsvpButton.isEnabled = false
@@ -78,6 +87,7 @@ class EventDetailViewController: UIViewController {
                 saveBarButton.isEnabled = false
                 saveBarButton.tintColor = .clear
             }
+            
         }
         
     }

@@ -30,6 +30,10 @@ class UserViewController: UIViewController {
         if rsvp == nil {
             rsvp = RSVP()
         }
+        //hide keyboard if we tap outside of the field
+        let tap = UITapGestureRecognizer(target: self.view, action: #selector(UIView.endEditing(_:)))
+        tap.cancelsTouchesInView = false
+        self.view.addGestureRecognizer(tap)
         updateUserInterface()
 
     }
