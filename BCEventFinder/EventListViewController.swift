@@ -18,6 +18,7 @@ private let dateFormatter: DateFormatter = {
 class EventListViewController: UIViewController {
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var segmentedControl: UISegmentedControl!
+    @IBOutlet weak var searchBar: UISearchBar!
     
     var events: Events!
     
@@ -26,6 +27,7 @@ class EventListViewController: UIViewController {
         events = Events()
         tableView.delegate = self
         tableView.dataSource = self
+        searchBar.delegate = self
 
     }
     
@@ -95,5 +97,37 @@ extension EventListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 60
     }
+    
+}
+
+extension EventListViewController: UISearchBarDelegate {
+    func searchBar(_ searchBar: UISearchBar, textDidChange searchText: String) {
+        
+        events.searchData(searchText: searchBar.text!) { (_) in
+            print("events in the array \(self.events.eventArray)")
+            self.tableView.reloadData()
+        }
+    }
+    func searchBarSearchButtonClicked(_ searchBar: UISearchBar) {
+        if searchBar.text != nil {
+            events.searchData(searchText: searchBar.text!) { (_) in
+            self.tableView.reloadData()
+        }
+        } else {
+            return
+        }
+    }
+    func searchBarTextDidBeginEditing(_ searchBar: UISearchBar) {
+            self.searchBar.showsCancelButton = true
+    }
+    func searchBarCancelButtonClicked(_ searchBar: UISearchBar) {
+            searchBar.showsCancelButton = false
+            searchBar.text = ""
+            searchBar.resignFirstResponder()
+            events.loadData {
+                self.sortBasedOnSegmentPressed()
+                self.tableView.reloadData()
+            }
+          }
     
 }

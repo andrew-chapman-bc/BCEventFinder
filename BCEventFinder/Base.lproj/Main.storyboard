@@ -51,7 +51,7 @@
                                 </connections>
                             </segmentedControl>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="xaO-QQ-ggh">
-                                <rect key="frame" x="0.0" y="0.0" width="414" height="694"/>
+                                <rect key="frame" x="0.0" y="51" width="414" height="643"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="none" hidesAccessoryWhenEditing="NO" indentationLevel="1" indentationWidth="0.0" reuseIdentifier="Cell" textLabel="2sf-ED-SFx" detailTextLabel="Jly-F0-Ujw" rowHeight="60" style="IBUITableViewCellStyleSubtitle" id="duh-ut-e2F">
@@ -83,17 +83,24 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="6df-U0-VF5">
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="51"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ntd-GA-gdR"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="6df-U0-VF5" firstAttribute="top" secondItem="ntd-GA-gdR" secondAttribute="top" id="0Ft-5E-LVx"/>
                             <constraint firstItem="Ras-01-P2Q" firstAttribute="leading" secondItem="ntd-GA-gdR" secondAttribute="leading" id="3vL-1J-gWH"/>
-                            <constraint firstItem="xaO-QQ-ggh" firstAttribute="top" secondItem="ntd-GA-gdR" secondAttribute="top" id="6I0-dN-BPH"/>
+                            <constraint firstItem="6df-U0-VF5" firstAttribute="leading" secondItem="ntd-GA-gdR" secondAttribute="leading" id="4c8-F3-yBc"/>
                             <constraint firstItem="ntd-GA-gdR" firstAttribute="trailing" secondItem="xaO-QQ-ggh" secondAttribute="trailing" id="PfB-cK-J3d"/>
                             <constraint firstItem="Ras-01-P2Q" firstAttribute="top" secondItem="xaO-QQ-ggh" secondAttribute="bottom" id="QbV-A3-ref"/>
                             <constraint firstItem="ntd-GA-gdR" firstAttribute="bottom" secondItem="Ras-01-P2Q" secondAttribute="bottom" id="qPy-lo-JCw"/>
                             <constraint firstItem="xaO-QQ-ggh" firstAttribute="leading" secondItem="ntd-GA-gdR" secondAttribute="leading" id="vdu-iC-uMk"/>
                             <constraint firstItem="ntd-GA-gdR" firstAttribute="trailing" secondItem="Ras-01-P2Q" secondAttribute="trailing" id="wh1-TW-kYL"/>
+                            <constraint firstItem="6df-U0-VF5" firstAttribute="trailing" secondItem="ntd-GA-gdR" secondAttribute="trailing" id="xiH-Nq-qFq"/>
+                            <constraint firstItem="xaO-QQ-ggh" firstAttribute="top" secondItem="6df-U0-VF5" secondAttribute="bottom" id="zo1-Kt-gbw"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="J2D-js-YUR">
@@ -112,6 +119,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="searchBar" destination="6df-U0-VF5" id="o4b-dM-hDt"/>
                         <outlet property="segmentedControl" destination="Ras-01-P2Q" id="SNm-uz-H5Y"/>
                         <outlet property="tableView" destination="xaO-QQ-ggh" id="VtV-lw-Fd9"/>
                     </connections>
@@ -119,7 +127,7 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5UT-9M-dKV" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
                 <exit id="SQD-uV-tyS" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
-            <point key="canvasLocation" x="2165" y="88"/>
+            <point key="canvasLocation" x="2163.768115942029" y="87.723214285714278"/>
         </scene>
         <!--Event Detail View Controller-->
         <scene sceneID="4JY-e0-HvT">

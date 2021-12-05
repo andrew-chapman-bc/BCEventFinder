@@ -33,4 +33,34 @@ class Events {
             completed()
         }
     }
+    
+    func searchData(searchText: String, completed: @escaping(Bool) -> ()) {
+            let revisedText = searchText
+            let eventssRef = db.collection("events")
+        eventssRef
+                .getDocuments() { (querySnapshot, err) in
+                    guard err == nil else {
+                        print("Error getting documents for search: \(err!.localizedDescription)")
+                        return completed(false)
+                    }
+                    self.eventArray = []
+                    print("amount of docs returned in searchData \(querySnapshot?.count ?? 0)")
+                    for document in querySnapshot!.documents {
+                        let event = Event(dictionary: document.data())
+                        print("THE EVENT LOOP WILL BE \(event)")
+                        for field in document.data() {
+                            if field.key == "name"  {
+                                print(field.value)
+                                let checkName = String(describing: field.value)
+                                if checkName.contains(revisedText) {
+                                    print("adding this document: \(field.key):\(field.value)")
+                                    event.documentID = document.documentID
+                                    self.eventArray.append(event)
+                                }
+                            }
+                        }
+                    }
+                    completed(true)
+                }
+        }
 }
