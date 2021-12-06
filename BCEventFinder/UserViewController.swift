@@ -7,6 +7,7 @@
 
 import UIKit
 import Firebase
+import AVFoundation
 
 class UserViewController: UIViewController {
 
@@ -16,6 +17,8 @@ class UserViewController: UIViewController {
     @IBOutlet weak var phoneNumberTextField: UITextField!
     @IBOutlet weak var deleteButton: UIButton!
     @IBOutlet weak var submitBarButton: UIBarButtonItem!
+    
+    var audioPlayer: AVAudioPlayer!
     
     var rsvp: RSVP!
     var event: Event!
@@ -36,6 +39,20 @@ class UserViewController: UIViewController {
         self.view.addGestureRecognizer(tap)
         updateUserInterface()
 
+    }
+    
+    func playSound(name: String){
+            if let sound = NSDataAsset(name: name){
+                do {
+                    try audioPlayer = AVAudioPlayer(data: sound.data)
+                    audioPlayer.play()
+                } catch {
+                    print("ERROR: \(error.localizedDescription) Could not initialize AVAudio player object")
+                }
+                
+            } else {
+                print("ERROR: Could not read data from sound0")
+            }
     }
     
     func updateUserInterface() {
@@ -100,6 +117,7 @@ class UserViewController: UIViewController {
             self.oneButtonAlert(title: "Missing Fields", message: "Please enter name and class year to submit RSVP")
             return
         }
+        playSound(name: "woosh")
         updateFromUserInterface()
         rsvp.saveData(event: event) { success in
             if success {
